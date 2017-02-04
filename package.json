@@ -21,5 +21,16 @@
   "bugs": {
     "url": "https://github.com/Alexnagel/alexa-server/issues"
   },
-  "homepage": "https://github.com/Alexnagel/alexa-server#readme"
+  "homepage": "https://github.com/Alexnagel/alexa-server#readme",
+  "dependencies": {
+    "alexa-verifier": "0.0.5",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "request": "^2.79.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.12.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0"
+  }
 }
