@@ -1,0 +1,25 @@
+{
+  "name": "alexa-server",
+  "version": "0.0.1",
+  "description": "Alexa backend in NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alexnagel/alexa-server.git"
+  },
+  "keywords": [
+    "Alexa",
+    "AVS",
+    "Node"
+  ],
+  "author": "Alex Nagelkerke",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Alexnagel/alexa-server/issues"
+  },
+  "homepage": "https://github.com/Alexnagel/alexa-server#readme"
+}
