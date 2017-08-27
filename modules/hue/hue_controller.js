@@ -5,6 +5,7 @@ class HueController {
   constructor() {
     this.hue_api = new HueAPI();
   }
+
   static createLightObject(lightId, fullObject) {
     return {
       id: lightId,
@@ -73,6 +74,51 @@ class HueController {
     });
   }
 
+  lightBrightnessChange(lightId, changeInfo, callback) {
+    const brState = changeInfo.data.brightnessState;
+    const brPercent = changeInfo.data.percentage;
+
+    let brightnessIncrease = 30;
+    if (brPercent !== null) {
+      brightnessIncrease = brPercent;
+    }
+
+    if (['dimmer', 'dim', 'darker'].includes(brState)) {
+      brightnessIncrease = -brightnessIncrease;
+    }
+
+    const stateData = {
+      bri_inc: brightnessIncrease,
+    };
+
+    this.hue_api.put(`/lights/${lightId}/state`, stateData,
+    (err, res, data) => {
+      const jsonData = JSON.parse(data);
+      if (jsonData[0]) {
+        if (jsonData[0].success) {
+          const response = {
+            success: true,
+            name: changeInfo.name,
+            state: changeInfo.state,
+          };
+
+          callback(response);
+        } else {
+          callback({
+            success: false,
+            name: changeInfo.name,
+            info: JSON.stringify(data[0].error),
+          });
+        }
+      } else {
+        callback({
+          success: false,
+          name: changeInfo.name,
+          info: 'Failed',
+        });
+      }
+    });
+  }
 }
 
 module.exports = new HueController();

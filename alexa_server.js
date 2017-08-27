@@ -4,6 +4,8 @@ const express = require('express');
 
 const AlexaVerifier = require('./alexa_cert_verifier');
 
+const hueRouter = require('./modules/hue/hue_router');
+
 class AlexaServer {
 
   constructor() {
@@ -13,6 +15,8 @@ class AlexaServer {
 
   initializeServer() {
     AlexaVerifier.setupVerifier(this.app);
+
+    this.app.use('/hue', hueRouter);
 
     this.app.get('/', (req, res) => {
       res.status(200).json({ message: 'Connected!' });
