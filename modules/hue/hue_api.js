@@ -30,7 +30,7 @@ class HueAPI {
     };
 
     if (data) {
-      options.body = data;
+      options.body = JSON.stringify(data);
     }
 
     request(options, callback);
