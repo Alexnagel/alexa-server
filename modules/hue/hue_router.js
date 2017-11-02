@@ -139,7 +139,7 @@ router.post('/groups/:id', (req, res) => {
     case lightActions.CHANGESCENE:
       hueController.groupSceneChange(groupId, changeObj.data, (changeResponse) => {
         if (changeResponse.success) {
-          res.send(`Scene ${changeResponse.scene} has been set for ${changeResponse.name}`);
+          res.send(`Scene ${changeResponse.scene} has been set for ${changeObj.name}`);
         } else {
           res.send(`Failed with: ${changeResponse.info}`);
         }

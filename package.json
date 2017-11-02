@@ -26,7 +26,8 @@
     "alexa-verifier": "0.0.5",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "request": "^2.79.0"
+    "request": "^2.79.0",
+    "serialport": "^6.0.4"
   },
   "devDependencies": {
     "eslint": "^3.12.0",
